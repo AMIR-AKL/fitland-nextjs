@@ -1,0 +1,20 @@
+# پوشه‌های node_modules و build را نادیده بگیر
+node_modules/
+build/
+dist/
+
+# فایل‌های سیستمی و محیطی
+.DS_Store
+.env
+*.log
+
+# فایل‌های خروجی سیستم‌عامل
+Thumbs.db
+
+# فایل‌های مربوط به IDEها
+.vscode/
+.idea/
+*.sublime-workspace
+
+# خروجی‌های تولید شده توسط تست یا lint
+coverage/
