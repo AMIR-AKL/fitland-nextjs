@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@theme {
+	--font-iransans-black: "IRANSansX Black";
+	--font-iransans-bold: "IRANSansX Bold";
+	--font-iransans-demibold: "IRANSansX DemiBold";
+	--font-iransans-extrablack: "IRANSansX ExtraBlack";
+	--font-iransans-extrabold: "IRANSansX ExtraBold";
+	--font-iransans-heavy: "IRANSansX Heavy";
+	--font-iransans-light: "IRANSansX Light";
+	--font-iransans-medium: "IRANSansX Medium";
+	--font-iransans-regular: "IRANSansX Regular";
+	--font-iransans-thin: "IRANSansX Thin";
+	--font-iransans-ultralight: "IRANSansX UltraLight";
+	--color-primary: #fa541c;
+	--color-secondary: #032340;
+	--color-primary-black: #feeee8;
+	--color-secondary-black: #ebf5ff;
+	--color-natural: #606060;
+	--color-card: #ebebeb;
+	--color-secondary-light: #f4faff;
+	--color-secondary-sky: #cfe8ff;
+	--color-secondary-dark: #021526;
+}
+@utility container {
+	margin-inline: auto;
+	padding-inline: 2rem;
+}
+@font-face {
+	font-family: "IRANSansX Black";
+	src: url("../../public/font/IRANSansX-Black.woff2");
+}
+@font-face {
+	font-family: "IRANSansX Bold";
+	src: url("../../public/font/IRANSansX-Bold.woff2");
+}
+@font-face {
+	font-family: "IRANSansX DemiBold";
+	src: url("../../public/font/IRANSansX-DemiBold.woff2");
+}
+@font-face {
+	font-family: "IRANSansX ExtraBlack";
+	src: url("../../public/font/IRANSansX-ExtraBlack.woff2");
+}
+@font-face {
+	font-family: "IRANSansX ExtraBold";
+	src: url("../../public/font/IRANSansX-ExtraBold.woff2");
+}
+@font-face {
+	font-family: "IRANSansX Heavy";
+	src: url("../../public/font/IRANSansX-Heavy.woff2");
+}
+@font-face {
+	font-family: "IRANSansX Light";
+	src: url("../../public/font/IRANSansX-Light.woff2");
+}
+@font-face {
+	font-family: "IRANSansX Medium";
+	src: url("../../public/font/IRANSansX-Medium.woff2");
+}
+@font-face {
+	font-family: "IRANSansX Regular";
+	src: url("../../public/font/IRANSansX-Regular.woff2");
+}
+@font-face {
+	font-family: "IRANSansX Thin";
+	src: url("../../public/font/IRANSansX-Thin.woff2");
+}
+@font-face {
+	font-family: "IRANSansX UltraLight";
+	src: url("../../public/font/IRANSansX-UltraLight.woff2");
+}
+@utility bg-banner1 {
+	background: url("/img/banner1/banner.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	/* height: 400px; */
+}
+@utility bg-banner2 {
+	background: url("/img/banner2/banner.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 400px;
+}
+@utility bg-banner3 {
+	background: url("/img/banner3/banner.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 600px;
+}
+@utility bg-signup {
+	background-image: url("/img/signup/signup.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+}
+@utility bg-gradiant {
+	background: linear-gradient(to bottom, transparent, #021526);
+}
+.d {
+	background-size: contain;
+}
