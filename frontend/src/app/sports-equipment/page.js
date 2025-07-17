@@ -148,7 +148,7 @@ export default async function SportsEquipment() {
 					{/* left side:products */}
 					<div className="lg:w-2/3 grid sm:grid-cols-2 md:grid-cols-3 mx-auto gap-5">
 						{data.map((item) => (
-							<Link key={item.id} href={`/children-cart/${item.id}`}>
+							<Link key={item.id} href={`/sports-equipment/${item.id}`}>
 								<Card
 									cardImg={item.src}
 									cardName={item.title}
