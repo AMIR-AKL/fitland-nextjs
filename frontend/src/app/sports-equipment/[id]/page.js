@@ -55,7 +55,7 @@ export default async function page({ params }) {
 						</div>
 						{/* card colors */}
 
-						<AddBtnCart id={id} category={"child"} />
+						<AddBtnCart id={id} category={"sports"} />
 					</div>
 				</div>
 			</div>
