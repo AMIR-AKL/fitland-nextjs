@@ -93,7 +93,10 @@ function HeadMenu() {
 			{/* login */}
 			<div className="flex max-sm:hidden items-center gap-x-4">
 				<div className="flex items-center gap-x-1 shadow-2xl bg-white p-2 rounded-xl">
-					<h3 className="text-xs font-iransans-demibold">ثبت نام | ورود</h3>
+					<h3 className="text-xs font-iransans-demibold">
+						<Link href={"/sign-up"}>ثبت نام </Link>|{" "}
+						<Link href={"/login"}>ورود</Link>
+					</h3>
 					<FiUser className="size-5" />
 				</div>
 				<Link href={"/cart"}>
