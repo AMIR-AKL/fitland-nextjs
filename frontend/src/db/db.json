@@ -194,18 +194,7 @@
 			"price": 350000,
 			"src": "/img/sports-equipment/sport1.jpg"
 		},
-		{
-			"id": "2",
-			"title": "طناب ورزشی",
-			"price": 350000,
-			"src": "/img/sports-equipment/sport2.jpg"
-		},
-		{
-			"id": "3",
-			"title": "طناب ورزشی",
-			"price": 350000,
-			"src": "/img/sports-equipment/sport3.jpg"
-		},
+		
 		{
 			"id": "4",
 			"title": "طناب ورزشی",
