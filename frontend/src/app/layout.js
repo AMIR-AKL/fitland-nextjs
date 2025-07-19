@@ -14,10 +14,7 @@ export default function RootLayout({ children }) {
 		<html lang="fa" dir="rtl">
 			<body>
 				<FitlandShoppingContextProvider>
-					<Header />
 					{children}
-					<BeforeFooter />
-					<Footer />
 				</FitlandShoppingContextProvider>
 			</body>
 		</html>
