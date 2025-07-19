@@ -6,12 +6,13 @@ import Card from "@/components/Card/Card";
 import { useShoppingContext } from "@/context/fitlandShoppingContext";
 import { formatNumber } from "@/utils/formatNumber";
 import Link from "next/link";
+import LayoutApp from "@/components/LayoutApp/LayoutApp";
 export default async function WomenCart() {
 	const result = await fetch("http://localhost:3001/women");
 	const data = await result.json();
 
 	return (
-		<>
+		<LayoutApp>
 			<div className="container mt-5">
 				{/* filter & sorted */}
 				<div className="flex justify-between">
@@ -162,6 +163,6 @@ export default async function WomenCart() {
 					</div>
 				</div>
 			</div>
-		</>
+		</LayoutApp>
 	);
 }

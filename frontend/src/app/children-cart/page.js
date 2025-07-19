@@ -5,13 +5,14 @@ import { IoFilterOutline } from "react-icons/io5";
 import { LuSettings2 } from "react-icons/lu";
 import Card from "@/components/Card/Card";
 import { formatNumber } from "@/utils/formatNumber";
+import LayoutApp from "@/components/LayoutApp/LayoutApp";
 
 
 export default async function ChildrenCart() {
 	const result = await fetch("http://localhost:3001/child");
 	const data = await result.json();
 	return (
-		<>
+		<LayoutApp>
 			<div className="container mt-5">
 				{/* filter & sorted */}
 				<div className="flex justify-between">
@@ -162,6 +163,6 @@ export default async function ChildrenCart() {
 					</div>
 				</div>
 			</div>
-		</>
+		</LayoutApp>
 	);
 }

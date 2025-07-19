@@ -1,9 +1,9 @@
 "use client";
 import CartItems from "@/components/CartItems/CartItems";
+import LayoutApp from "@/components/LayoutApp/LayoutApp";
 import { useShoppingContext } from "@/context/fitlandShoppingContext";
 import { formatNumber } from "@/utils/formatNumber";
 import axios from "axios";
-import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 export default function Cart() {
@@ -34,68 +34,70 @@ export default function Cart() {
 		0
 	);
 	const handleDisCount = () => {
-		axios(
-			`http://localhost:3001/discounts?code=${disCountCode}`
-		).then((res) => {
-			let data = res.data;
-			let off = data[0].percenTag;
-			let discountedPrice = (off * totalPrice) / 100;
-			let finallyPrice = totalPrice - discountedPrice;
-			setDiscontedPrice(discountedPrice);
-			setFinallyPrice(finallyPrice);
-			console.log(discountedPrice);
-		});
+		axios(`http://localhost:3001/discounts?code=${disCountCode}`).then(
+			(res) => {
+				let data = res.data;
+				let off = data[0].percenTag;
+				let discountedPrice = (off * totalPrice) / 100;
+				let finallyPrice = totalPrice - discountedPrice;
+				setDiscontedPrice(discountedPrice);
+				setFinallyPrice(finallyPrice);
+				console.log(discountedPrice);
+			}
+		);
 	};
 
 	// console.log(products);
 
 	return (
-		<div>
-			<div className="container">
-				{cartItems.map((cart) => (
-					<CartItems key={cart.id} id={cart.id} category={cart.category} />
-				))}
-			</div>
-			<div className="container">
-				<div className="mt-5 shadow py-6 px-4 rounded-lg space-y-4">
-					<h3 className="text-2xl font-iransans-medium flex gap-1 items-center">
-						قیمت کل:
-						<span className="font-iransans-bold">
-							{formatNumber(totalPrice)}
-						</span>
-						<span className="text-lg font-iransans-regular">تومان</span>
-					</h3>
-					<h3 className="text-2xl font-iransans-medium flex gap-1 items-center">
-						سود شما از این خرید:
-						<span className="font-iransans-bold">
-							{formatNumber(discountedPrice)}
-						</span>
-						<span className="text-lg font-iransans-regular">تومان</span>
-					</h3>
-					<h3 className="text-2xl font-iransans-medium flex gap-1 items-center">
-						قیمت نهایی:{" "}
-						<span className="font-iransans-bold">
-							{formatNumber(finallyPrice)}
-						</span>
-						<span className="text-lg font-iransans-regular">تومان</span>
-					</h3>
-					<div className="flex items-center gap-4 mt-5">
-						<input
-							onChange={(e) => setDisCountCode(e.target.value.toUpperCase())}
-							value={disCountCode}
-							className="bg-green-100 outline-none p-2 rounded-lg"
-							type="text"
-							placeholder="کد تخفیف را وارد کنید"
-						/>
-						<button
-							onClick={handleDisCount}
-							className="bg-green-600 py-2 px-5 rounded-lg cursor-pointer hover:bg-green-800 transition-colors text-white"
-						>
-							اعمال
-						</button>
+		<LayoutApp>
+			<div>
+				<div className="container">
+					{cartItems.map((cart) => (
+						<CartItems key={cart.id} id={cart.id} category={cart.category} />
+					))}
+				</div>
+				<div className="container">
+					<div className="mt-5 shadow py-6 px-4 rounded-lg space-y-4">
+						<h3 className="text-2xl font-iransans-medium flex gap-1 items-center">
+							قیمت کل:
+							<span className="font-iransans-bold">
+								{formatNumber(totalPrice)}
+							</span>
+							<span className="text-lg font-iransans-regular">تومان</span>
+						</h3>
+						<h3 className="text-2xl font-iransans-medium flex gap-1 items-center">
+							سود شما از این خرید:
+							<span className="font-iransans-bold">
+								{formatNumber(discountedPrice)}
+							</span>
+							<span className="text-lg font-iransans-regular">تومان</span>
+						</h3>
+						<h3 className="text-2xl font-iransans-medium flex gap-1 items-center">
+							قیمت نهایی:{" "}
+							<span className="font-iransans-bold">
+								{formatNumber(finallyPrice)}
+							</span>
+							<span className="text-lg font-iransans-regular">تومان</span>
+						</h3>
+						<div className="flex items-center gap-4 mt-5">
+							<input
+								onChange={(e) => setDisCountCode(e.target.value.toUpperCase())}
+								value={disCountCode}
+								className="bg-green-100 outline-none p-2 rounded-lg"
+								type="text"
+								placeholder="کد تخفیف را وارد کنید"
+							/>
+							<button
+								onClick={handleDisCount}
+								className="bg-green-600 py-2 px-5 rounded-lg cursor-pointer hover:bg-green-800 transition-colors text-white"
+							>
+								اعمال
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</LayoutApp>
 	);
 }

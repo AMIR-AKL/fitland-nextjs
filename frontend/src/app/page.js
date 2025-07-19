@@ -1,12 +1,13 @@
 import Banner1 from "@/components/Banner/Banner";
 import CardHomeWrapper from "@/components/CardHomeWrapper/CardHomeWrapper";
 import IntroSite from "@/components/IntroSite/IntroSite";
+import LayoutApp from "@/components/LayoutApp/LayoutApp";
 import News from "@/components/News/News";
 import Offer from "@/components/Offer/Offer";
 
 export default function Home() {
 	return (
-		<>
+		<LayoutApp>
 			<IntroSite />
 			<CardHomeWrapper
 				imgCard1={`img/cardhm/whiteShirt.png`}
@@ -80,6 +81,6 @@ export default function Home() {
 			/>
 			<News />
 			
-		</>
+		</LayoutApp>
 	);
 }
