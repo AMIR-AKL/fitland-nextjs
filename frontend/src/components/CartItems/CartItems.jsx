@@ -8,7 +8,7 @@ import axios from "axios";
 export default function CartItems({ id, category }) {
 	const [data, setData] = useState();
 	useEffect(() => {
-		axios(`http://localhost:3001/${category}/${Number(id)}`).then((res) =>
+		axios(`https://fitland-api-1.onrender.com/${category}/${Number(id)}`).then((res) =>
 			setData(res.data)
 		);
 	}, []);
@@ -17,7 +17,7 @@ export default function CartItems({ id, category }) {
 	return (
 		<div className="grid grid-cols-10 max-md:flex flex-col shadow mt-5 rounded-lg overflow-hidden gap-5">
 			<div className="relative col-span-4 lg:col-span-3">
-				<img className="object-cover" src={data?.src} alt="card1" />
+				<img className="object-cover size-60" src={data?.src} alt="card1" />
 				<div className=" absolute right-5 top-2">
 					<span
 						className={`bg-[#334B4F] size-4 rounded-full block absolute top-2`}
@@ -59,7 +59,7 @@ export default function CartItems({ id, category }) {
 						<span className="text-sm font-iransans-medium">تومان</span>
 					</h3>
 				</div>
-				<AddBtnCart id={id} />
+				<AddBtnCart id={id} category={category} />
 			</div>
 		</div>
 	);
