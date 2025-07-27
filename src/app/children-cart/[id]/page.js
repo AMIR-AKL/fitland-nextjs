@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import React from "react";
 import AddBtnCart from "@/components/AddBtnCart/AddBtnCart";
 import { formatNumber } from "@/utils/formatNumber";
