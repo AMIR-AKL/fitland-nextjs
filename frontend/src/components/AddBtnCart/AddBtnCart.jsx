@@ -18,16 +18,16 @@ export default function AddBtnCart({ id, category }) {
 				>
 					+
 				</button>
-				<h3>{getQtyCart(id)}</h3>
+				<h3>{getQtyCart(id,category)}</h3>
 				<button
-					onClick={() => handleDeCreaseCart(id)}
+					onClick={() => handleDeCreaseCart(id,category)}
 					className="bg-red-500 h-8 w-15 flex items-center justify-center rounded-lg text-white cursor-pointer hover:bg-red-600 transition-colors"
 				>
 					-
 				</button>
 			</div>
 			<button
-				onClick={() => deleteCartFromBasket(id)}
+				onClick={() => deleteCartFromBasket(id,category)}
 				className="bg-red-500 h-8 w-22 flex items-center justify-center rounded-lg text-white cursor-pointer hover:bg-red-600 transition-colors"
 			>
 				Delete
