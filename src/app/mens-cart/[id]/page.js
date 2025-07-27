@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import React from "react";
 import AddBtnCart from "@/components/AddBtnCart/AddBtnCart";
 import { formatNumber } from "@/utils/formatNumber";
@@ -5,9 +6,7 @@ import { IoStar } from "react-icons/io5";
 import LayoutApp from "@/components/LayoutApp/LayoutApp";
 export default async function page({ params }) {
 	const { id } = await params;
-	const result = await fetch(
-		`https://fitland-api-1.onrender.com/men/${id}`
-	);
+	const result = await fetch(`https://fitland-api-1.onrender.com/men/${id}`);
 	const data = await result.json();
 	return (
 		<LayoutApp>

@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import AddBtnCart from "@/components/AddBtnCart/AddBtnCart";
 import CartItems from "@/components/CartItems/CartItems";
 import LayoutApp from "@/components/LayoutApp/LayoutApp";

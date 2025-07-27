@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import React from "react";
 import { LuSettings2 } from "react-icons/lu";
 import { IoFilterOutline } from "react-icons/io5";
