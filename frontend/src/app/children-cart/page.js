@@ -9,7 +9,7 @@ import LayoutApp from "@/components/LayoutApp/LayoutApp";
 
 
 export default async function ChildrenCart() {
-	const result = await fetch("http://localhost:3001/child");
+	const result = await fetch("https://fitland-api-1.onrender.com/child");
 	const data = await result.json();
 	return (
 		<LayoutApp>

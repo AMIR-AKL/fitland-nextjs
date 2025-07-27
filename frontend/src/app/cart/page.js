@@ -15,7 +15,9 @@ export default function Cart() {
 	useEffect(() => {
 		async function getAllProducts() {
 			const result = cartItems.map((item) =>
-				axios.get(`http://localhost:3001/${item.category}/${item.id}`)
+				axios.get(
+					`https://fitland-api-1.onrender.com/${item.category}/${item.id}`
+				)
 			);
 			const response = await Promise.all(result);
 			const data = response.map((res, index) => ({
@@ -34,17 +36,17 @@ export default function Cart() {
 		0
 	);
 	const handleDisCount = () => {
-		axios(`http://localhost:3001/discounts?code=${disCountCode}`).then(
-			(res) => {
-				let data = res.data;
-				let off = data[0].percenTag;
-				let discountedPrice = (off * totalPrice) / 100;
-				let finallyPrice = totalPrice - discountedPrice;
-				setDiscontedPrice(discountedPrice);
-				setFinallyPrice(finallyPrice);
-				console.log(discountedPrice);
-			}
-		);
+		axios(
+			`https://fitland-api-1.onrender.com/discounts?code=${disCountCode}`
+		).then((res) => {
+			let data = res.data;
+			let off = data[0].percenTag;
+			let discountedPrice = (off * totalPrice) / 100;
+			let finallyPrice = totalPrice - discountedPrice;
+			setDiscontedPrice(discountedPrice);
+			setFinallyPrice(finallyPrice);
+			console.log(discountedPrice);
+		});
 	};
 
 	// console.log(products);
@@ -54,7 +56,11 @@ export default function Cart() {
 			<div>
 				<div className="container">
 					{cartItems.map((cart) => (
-						<CartItems key={cart.id} id={cart.id} category={cart.category} />
+						<CartItems
+							key={cart.category + cart.id}
+							id={cart.id}
+							category={cart.category}
+						/>
 					))}
 				</div>
 				<div className="container">

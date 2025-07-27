@@ -8,7 +8,7 @@ import { formatNumber } from "@/utils/formatNumber";
 import LayoutApp from "@/components/LayoutApp/LayoutApp";
 
 export default async function MensCart() {
-	const result = await fetch("http://localhost:3001/men");
+	const result = await fetch("https://fitland-api-1.onrender.com/men");
 	const data = await result.json();
 	return (
 		<LayoutApp>
