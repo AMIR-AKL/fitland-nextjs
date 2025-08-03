@@ -1,11 +1,13 @@
 "use client";
 import { useShoppingContext } from "@/context/fitlandShoppingContext";
 import Link from "next/link";
+import { useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { FiUser } from "react-icons/fi";
 import { HiMiniXMark, HiOutlineShoppingBag } from "react-icons/hi2";
 import { HiBars3 } from "react-icons/hi2";
 function HeadMenu() {
+	const [openMobileMenu, setOpenMobileMenu] = useState(false);
 	// const openMobileMenu = (e) => {
 	// 	const mobileMenuEl = document.getElementById("mobile-menu");
 	// 	const coverEl = document.querySelector("#cover");
@@ -25,24 +27,36 @@ function HeadMenu() {
 		<div className="flex max-sm:flex-col max-sm:items-start sm:justify-between sm:items-center mt-8 gap-5 ">
 			{/* logo */}
 			<div className="flex sm:flex-col max-sm:w-full max-sm:justify-between items-center sm:gap-2">
-				<img className="max-sm:size-20" src="/img/logo/fitland.svg" alt="" />
+				<Link href={"/"}>
+					<img className="max-sm:size-24" src="/img/logo/fitland.svg" alt="" />
+				</Link>
 				<p className="md:block hidden font-iransans-medium text-xs tracking-normal">
 					فروشگاه لوازم ورزشی فیت‌لند
 				</p>
-				<HiBars3 className="size-8 sm:hidden" />
+				<HiBars3
+					onClick={() => setOpenMobileMenu(true)}
+					className="size-8 sm:hidden"
+				/>
 				{/* mobile menu */}
 				<div
 					id="mobile-menu"
-					className={`flex flex-col transition-all duration-200 ease-linear gap-10 w-50 h-full bg-white fixed -left-50 top-0 bottom-0 p-5 z-50`}
+					className={`flex flex-col transition-all duration-200 ease-linear gap-10 w-50 h-full bg-white fixed  top-0 bottom-0 p-5 z-80 ${
+						openMobileMenu ? "left-0" : "-left-50"
+					}`}
 				>
+					{/* heads mobile menu */}
 					<div className="flex items-center justify-between">
 						<img
-							className="max-sm:size-20"
+							className="max-sm:size-22"
 							src="/img/logo/fitland.svg"
 							alt=""
 						/>
-						<HiMiniXMark className="size-6" />
+						<HiMiniXMark
+							onClick={() => setOpenMobileMenu(false)}
+							className="size-6"
+						/>
 					</div>
+					{/* links mobile menu */}
 					<ul className="flex flex-col *:flex gap-10 *:text-sm *:font-iransans-medium">
 						<li>
 							<Link href="./mens-cart">مردانه</Link>
@@ -51,13 +65,13 @@ function HeadMenu() {
 							<Link href="/womens-cart">زنانه</Link>
 						</li>
 						<li>
-							<a href="#">بچگانه</a>
+							<Link href="/children-cart">بچگانه</Link>
 						</li>
 						<li>
-							<a href="#">لوازم ورزشی</a>
+							<Link href="/sports-equipment">لوازم ورزشی</Link>
 						</li>
 						<li>
-							<a href="#">شیکر و جاگ</a>
+							<Link href="/shaker">شیکر و جاگ</Link>
 						</li>
 					</ul>
 					<ul className="flex flex-col *:flex *:items-center *:gap-x-2 gap-10 *:text-sm *:font-iransans-medium">
@@ -113,9 +127,12 @@ function HeadMenu() {
 					</div>
 				</Link>
 			</div>
+			{/* cover */}
 			<div
 				id="cover"
-				className=" absolute left-0 right-0 top-0 bottom-0 bg-black/30 hidden transition-all"
+				className={`fixed left-0 right-0 z-50 top-0 h-full bottom-0  bg-black/40  transition-all ${
+					openMobileMenu ? "block" : "hidden"
+				}`}
 			></div>
 		</div>
 	);
