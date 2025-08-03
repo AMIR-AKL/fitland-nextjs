@@ -6,9 +6,9 @@ import { PiCalendarDotsLight } from "react-icons/pi";
 
 function IntroSite() {
 	return (
-		<section className="container flex max-sm:flex-col items-center justify-between mt-10 relative">
+		<section className="sm:container max-sm:px-2 flex max-md:flex-col items-center justify-between mt-10 relative">
 			{/* intro info text */}
-			<div className="*:mt-5 flex max-md:w-1/2 flex-col max-sm:items-center max-sm:text-center z-10">
+			<div className="*:mt-5 flex  flex-col max-md:items-center max-sm:text-center z-10">
 				<h3 className="text-natural tracking-tight text-base font-iransans-medium">
 					راحت و مطمئن خرید کنید!
 				</h3>
@@ -29,7 +29,7 @@ function IntroSite() {
 			</div>
 			{/* img sport man */}
 
-			<div className="md:w-4/5 max-sm:w-full max-md:w-1/2 h-auto px-3.5 py-3.5 z-20">
+			<div className="md:w-4/5 max-md:w-full max-md:w-1/2 h-auto px-3.5 py-3.5 z-20">
 				<img className="w-full" src="/img/sport.png" alt="" />
 			</div>
 			{/* <div className="md:w-150 h-auto px-3.5 py-3.5 z-20">

@@ -101,6 +101,3 @@
 @utility bg-gradiant {
 	background: linear-gradient(to bottom, transparent, #021526);
 }
-.d {
-	background-size: contain;
-}
