@@ -8,16 +8,16 @@ import axios from "axios";
 export default function CartItems({ id, category }) {
 	const [data, setData] = useState();
 	useEffect(() => {
-		axios(`https://fitland-api-1.onrender.com/${category}/${Number(id)}`).then((res) =>
+		axios(`https://fitland-gtmr.onrender.com/api/products/${category}/${id}`).then((res) =>
 			setData(res.data)
 		);
 	}, []);
-	// console.log(data?.id);
+	// console.log(data);
 
 	return (
-		<div className="grid grid-cols-10 max-md:flex flex-col shadow mt-5 rounded-lg overflow-hidden gap-5">
-			<div className="relative col-span-4 lg:col-span-3">
-				<img className="object-cover size-60" src={data?.src} alt="card1" />
+		<div className="flex flex-col shadow mt-5 rounded-lg overflow-hidden">
+			<div className="relative">
+				<img className="object-cover w-full bg-cover bg-center" src={data?.img} alt="card1" />
 				<div className=" absolute right-5 top-2">
 					<span
 						className={`bg-[#334B4F] size-4 rounded-full block absolute top-2`}
@@ -30,7 +30,7 @@ export default function CartItems({ id, category }) {
 					></span>
 				</div>
 			</div>
-			<div className="col-span-6 lg:col-span-7 flex flex-col justify-around space-y-6 pt-2 pb-8 px-4">
+			<div className=" flex flex-col justify-around space-y-6 pt-2 pb-8 px-4">
 				{/* name & rate */}
 				<div>
 					{/* card name */}
