@@ -16,7 +16,7 @@ export default function Cart() {
 		async function getAllProducts() {
 			const result = cartItems.map((item) =>
 				axios.get(
-					`https://fitland-api-1.onrender.com/${item.category}/${item.id}`
+					`https://fitland-gtmr.onrender.com/api/products/${item.category}/${item.id}`
 				)
 			);
 			const response = await Promise.all(result);
@@ -27,34 +27,32 @@ export default function Cart() {
 			}));
 			setProducts(data);
 		}
-		if (cartItems.length > 0) {
-			getAllProducts();
-		}
+		getAllProducts();
 	}, [cartItems]);
-	const totalPrice = products.reduce(
-		(total, item) => total + item.price * item.qty,
-		0
-	);
+	const totalPrice = products.reduce((total, item) => {
+		return (total + item.price) * item.qty;
+	}, 0);
 	const handleDisCount = () => {
-		axios(
-			`https://fitland-api-1.onrender.com/discounts?code=${disCountCode}`
-		).then((res) => {
-			let data = res.data;
-			let off = data[0].percenTag;
-			let discountedPrice = (off * totalPrice) / 100;
-			let finallyPrice = totalPrice - discountedPrice;
-			setDiscontedPrice(discountedPrice);
-			setFinallyPrice(finallyPrice);
-			console.log(discountedPrice);
-		});
+		axios(`https://fitland-gtmr.onrender.com/api/discounts?code=${disCountCode}`).then(
+			(res) => {
+				let data = res.data;
+				let off = data.percentag;
+				let discountedPrice = (off * totalPrice) / 100;
+				let finallyPrice = totalPrice - discountedPrice;
+				setDiscontedPrice(discountedPrice);
+				setFinallyPrice(finallyPrice);
+				console.log(discountedPrice);
+			}
+		);
 	};
-
 	// console.log(products);
+
+	// console.log(cartItems);
 
 	return (
 		<LayoutApp>
 			<div>
-				<div className="container">
+				<div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
 					{cartItems.map((cart) => (
 						<CartItems
 							key={cart.category + cart.id}
@@ -88,7 +86,7 @@ export default function Cart() {
 						</h3>
 						<div className="flex items-center gap-4 mt-5">
 							<input
-								onChange={(e) => setDisCountCode(e.target.value.toUpperCase())}
+								onChange={(e) => setDisCountCode(e.target.value)}
 								value={disCountCode}
 								className="bg-green-100 outline-none p-2 rounded-lg"
 								type="text"

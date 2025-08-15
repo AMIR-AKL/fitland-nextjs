@@ -6,7 +6,7 @@ import { IoStar } from "react-icons/io5";
 import LayoutApp from "@/components/LayoutApp/LayoutApp";
 export default async function page({ params }) {
 	const { id } = await params;
-	const result = await fetch(`https://fitland-api-1.onrender.com/men/${id}`);
+	const result = await fetch(`https://fitland-gtmr.onrender.com/api/products/men/${id}`);
 	const data = await result.json();
 	return (
 		<LayoutApp>
@@ -14,7 +14,7 @@ export default async function page({ params }) {
 				<div className="container">
 					<div className="grid grid-cols-10 max-md:flex flex-col shadow mt-5 rounded-lg overflow-hidden gap-5">
 						<div className="relative col-span-4 lg:col-span-3">
-							<img className="" src={data.src} alt="card1" />
+							<img className="" src={data.img} alt="card1" />
 							<div className=" absolute right-5 top-2">
 								<span
 									className={`bg-[#334B4F] size-4 rounded-full block absolute top-2`}
