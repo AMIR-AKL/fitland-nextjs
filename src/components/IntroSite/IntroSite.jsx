@@ -29,7 +29,7 @@ function IntroSite() {
 			</div>
 			{/* img sport man */}
 
-			<div className="md:w-4/5 max-md:w-full max-md:w-1/2 h-auto px-3.5 py-3.5 z-20">
+			<div className="md:w-4/5 max-md:w-full  h-auto px-3.5 py-3.5 z-20">
 				<img className="w-full" src="/img/sport.png" alt="" />
 			</div>
 			{/* <div className="md:w-150 h-auto px-3.5 py-3.5 z-20">
