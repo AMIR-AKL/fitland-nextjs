@@ -1,4 +1,7 @@
 "use client";
+
+import axios from "axios";
+
 const { createContext, useContext, useState, useEffect } = require("react");
 
 const shoppingContext = createContext({});
@@ -9,28 +12,39 @@ export const useShoppingContext = () => {
 
 export function FitlandShoppingContextProvider({ children }) {
 	const [cartItems, setCartItems] = useState([]);
+	const [user, setUser] = useState(null);
+	const [error, setError] = useState(null);
+	const [logOut, setLogOut] = useState(false);
 	const handleIncreaseCart = (id, category) => {
-		setCartItems((currentItems) => {
-			let isCartInBasket = currentItems.find(
-				(item) => item.id == id && item.category == category
-			);
-			if (!isCartInBasket) {
-				return [...currentItems, { id: id, category: category, qty: 1 }];
-			} else {
-				return currentItems.map((item) => {
-					if (item.id == id && item.category == category) {
-						return { ...item, qty: item.qty + 1 };
-					} else {
-						return item;
-					}
-				});
-			}
-		});
+		if (user) {
+			setCartItems((currentItems) => {
+				let isCartInBasket = currentItems.find(
+					(item) => item.id == id && item.category == category
+				);
+				if (!isCartInBasket) {
+					return [...currentItems, { id: id, category: category, qty: 1 }];
+				} else {
+					return currentItems.map((item) => {
+						if (item.id == id && item.category == category) {
+							return { ...item, qty: item.qty + 1 };
+						} else {
+							return item;
+						}
+					});
+				}
+			});
+		} else {
+			alert('لطفا وارد حساب خود شوید')
+		}
 	};
 	const handleDeCreaseCart = (id, category) => {
 		setCartItems((currentItems) => {
+			// console.log(currentItems);
+			// console.log(cartItems);
+			
+			
 			let isLastCartInBasket =
-				currentItems.find((item) => item.id == id && item.category == category)
+				currentItems.find((item) => item.id === id && item.category === category)
 					?.qty == 1;
 			if (isLastCartInBasket) {
 				return currentItems.filter(
@@ -75,6 +89,36 @@ export function FitlandShoppingContextProvider({ children }) {
 		localStorage.setItem("carts", JSON.stringify(cartItems));
 	}, [cartItems]);
 
+	// get user info
+	useEffect(() => {
+		const fetchUserInfo = async () => {
+			try {
+				const token = localStorage.getItem("token");
+				if (!token) {
+					setError("لطفا وارد شوید");
+					return;
+				}
+				const res = await axios.get("https://fitland-gtmr.onrender.com/api/users/", {
+					headers: {
+						Authorization: token,
+					},
+				});
+				setUser(res.data.user);
+				// console.log(user);
+			} catch (err) {
+				setError("دریافت اطلاعات کاربر باخطا مواجه شد");
+			}
+		};
+		fetchUserInfo();
+	}, []);
+	const logOutHandler = () => {
+		setLogOut(true);
+		setTimeout(() => {
+			localStorage.removeItem("token");
+			setUser(null);
+			setLogOut(false);
+		}, 3000);
+	};
 	return (
 		<shoppingContext.Provider
 			value={{
@@ -84,6 +128,10 @@ export function FitlandShoppingContextProvider({ children }) {
 				getQtyCart,
 				totalQtyCarts,
 				deleteCartFromBasket,
+				user,
+				error,
+				setUser,
+				logOutHandler,
 			}}
 		>
 			{children}
