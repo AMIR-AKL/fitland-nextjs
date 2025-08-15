@@ -20,6 +20,7 @@
 	--color-secondary-light: #f4faff;
 	--color-secondary-sky: #cfe8ff;
 	--color-secondary-dark: #021526;
+	--shadow-light: 0 0 8px 4px;
 }
 @utility container {
 	margin-inline: auto;
@@ -100,4 +101,7 @@
 }
 @utility bg-gradiant {
 	background: linear-gradient(to bottom, transparent, #021526);
+}
+.MuiDataGrid-cell {
+	text-align: center !important;
 }
