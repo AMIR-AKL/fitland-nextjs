@@ -6,7 +6,7 @@ import { formatNumber } from "@/utils/formatNumber";
 import React from "react";
 import { IoStar } from "react-icons/io5";
 
-export default async function page({ params }) {
+export default async function Page({ params }) {
 	const { id } = await params;
 	console.log(id);
 	const result = await fetch(`https://fitland-gtmr.onrender.com/api/products/women/${id}`);

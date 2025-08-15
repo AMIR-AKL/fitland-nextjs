@@ -4,7 +4,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { IoMdEye } from "react-icons/io";
 
-export default function page() {
+export default function Page() {
 	const [inputPasswordType, setInputPasswordType] = useState(true);
 	const [form, setForm] = useState({
 		firstname: "",

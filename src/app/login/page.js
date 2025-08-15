@@ -4,7 +4,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { IoIosLogIn } from "react-icons/io";
 import { IoMdEye } from "react-icons/io";
-export default function page() {
+export default function Page() {
 	const [form, setForm] = useState({ username: "", password: "" });
 	const [inputPasswordType, setInputPasswordType] = useState(true);
 	const handleChange = (e) => {

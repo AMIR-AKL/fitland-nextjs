@@ -7,7 +7,7 @@ import EmptyError from "@/components/EmptyError/EmptyError";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 
-export default function page() {
+export default function Page() {
 	const [stats, setStats] = useState({
 		users: 0,
 		products: 0,
