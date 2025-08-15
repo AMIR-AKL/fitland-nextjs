@@ -8,9 +8,10 @@ import Card from "@/components/Card/Card";
 import { formatNumber } from "@/utils/formatNumber";
 import LayoutApp from "@/components/LayoutApp/LayoutApp";
 
-
 export default async function ChildrenCart() {
-	const result = await fetch("https://fitland-gtmr.onrender.com/api/products/category/kid");
+	const result = await fetch(
+		"https://fitland-gtmr.onrender.com/api/products/category/kid"
+	);
 	const data = await result.json();
 	return (
 		<LayoutApp>
@@ -26,7 +27,7 @@ export default async function ChildrenCart() {
 					<div className="flex items-center gap-x-0.5">
 						<IoFilterOutline className="size-6 mt-1" />
 						<span>مرتب سازی بر اساس</span>
-					</div>{" "}
+					</div>
 				</div>
 				{/* products & filter section in desktop */}
 				<div className="flex mt-10">
@@ -152,9 +153,9 @@ export default async function ChildrenCart() {
 					{/* left side:products */}
 					<div className="lg:w-2/3 grid sm:grid-cols-2 md:grid-cols-3 mx-auto gap-5">
 						{data.map((item) => (
-							<Link key={item.id} href={`/children-cart/${item.id}`}>
+							<Link key={item._id} href={`/children-cart/${item._id}`}>
 								<Card
-									cardImg={item.src}
+									cardImg={item.img}
 									cardName={item.title}
 									cardSize={item.size}
 									cardPrice={formatNumber(item.price)}
