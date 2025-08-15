@@ -8,6 +8,7 @@ export default function AddBtnCart({ id, category }) {
 		handleDeCreaseCart,
 		getQtyCart,
 		deleteCartFromBasket,
+		error,
 	} = useShoppingContext();
 	return (
 		<div className="flex gap-5 items-center">
@@ -18,16 +19,16 @@ export default function AddBtnCart({ id, category }) {
 				>
 					+
 				</button>
-				<h3>{getQtyCart(id,category)}</h3>
+				<h3>{getQtyCart(id, category)}</h3>
 				<button
-					onClick={() => handleDeCreaseCart(id,category)}
+					onClick={() => handleDeCreaseCart(id, category)}
 					className="bg-red-500 h-8 w-15 flex items-center justify-center rounded-lg text-white cursor-pointer hover:bg-red-600 transition-colors"
 				>
 					-
 				</button>
 			</div>
 			<button
-				onClick={() => deleteCartFromBasket(id,category)}
+				onClick={() => deleteCartFromBasket(id, category)}
 				className="bg-red-500 h-8 w-22 flex items-center justify-center rounded-lg text-white cursor-pointer hover:bg-red-600 transition-colors"
 			>
 				Delete
