@@ -80,7 +80,6 @@ export default function Home() {
 				classTitle1={`text-white max-w-50 md:max-w-80 lg:max-w-100`}
 			/>
 			<News />
-			
 		</LayoutApp>
 	);
 }
