@@ -9,6 +9,7 @@ import { formatNumber } from "@/utils/formatNumber";
 import LayoutApp from "@/components/LayoutApp/LayoutApp";
 import EmptyError from "@/components/EmptyError/EmptyError";
 import Filtred from "@/components/Filtred/Filtred";
+import PaginationApp from "@/components/Pagination/Pagination";
 export default async function SportsEquipment() {
 	const result = await fetch(
 		"https://fitland-gtmr.onrender.com/api/products/category/equipment"
@@ -35,22 +36,7 @@ export default async function SportsEquipment() {
 					{/* right side :filter section in desktop*/}
 					{data.length ? <Filtred /> : ""}
 					{/* left side:products */}
-					{data.length ? (
-						<div className="lg:w-2/3 grid sm:grid-cols-2 md:grid-cols-3 mx-auto gap-5">
-							{data.map((item) => (
-								<Link key={item._id} href={`/mens-cart/${item._id}`}>
-									<Card
-										cardImg={item.img}
-										cardName={item.title}
-										cardSize={item.size}
-										cardPrice={formatNumber(item.price)}
-									/>
-								</Link>
-							))}
-						</div>
-					) : (
-						<EmptyError />
-					)}
+					{data.length ? <PaginationApp data={data} /> : <EmptyError />}
 				</div>
 			</div>
 		</LayoutApp>

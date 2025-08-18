@@ -63,21 +63,21 @@ export default function Cart() {
 				</div>
 				<div className="container">
 					<div className="mt-5 shadow py-6 px-4 rounded-lg space-y-4">
-						<h3 className="text-2xl font-iransans-medium flex gap-1 items-center">
+						<h3 className="sm:text-2xl font-iransans-medium flex gap-1 items-center">
 							قیمت کل:
 							<span className="font-iransans-bold">
 								{formatNumber(totalPrice)}
 							</span>
 							<span className="text-lg font-iransans-regular">تومان</span>
 						</h3>
-						<h3 className="text-2xl font-iransans-medium flex gap-1 items-center">
+						<h3 className="sm:text-2xl font-iransans-medium flex gap-1 items-center">
 							سود شما از این خرید:
 							<span className="font-iransans-bold">
 								{formatNumber(discountedPrice)}
 							</span>
 							<span className="text-lg font-iransans-regular">تومان</span>
 						</h3>
-						<h3 className="text-2xl font-iransans-medium flex gap-1 items-center">
+						<h3 className="sm:text-2xl font-iransans-medium flex gap-1 items-center">
 							قیمت نهایی:{" "}
 							<span className="font-iransans-bold">
 								{formatNumber(finallyPrice)}
@@ -88,13 +88,13 @@ export default function Cart() {
 							<input
 								onChange={(e) => setDisCountCode(e.target.value)}
 								value={disCountCode}
-								className="bg-green-100 outline-none p-2 rounded-lg"
+								className="bg-green-100 max-sm:w-2/3 text-xs outline-none p-2 rounded-lg"
 								type="text"
 								placeholder="کد تخفیف را وارد کنید"
 							/>
 							<button
 								onClick={handleDisCount}
-								className="bg-green-600 py-2 px-5 rounded-lg cursor-pointer hover:bg-green-800 transition-colors text-white"
+								className="bg-green-600 py-1 sm:py-2 px-5 rounded-lg cursor-pointer hover:bg-green-800 transition-colors text-white"
 							>
 								اعمال
 							</button>

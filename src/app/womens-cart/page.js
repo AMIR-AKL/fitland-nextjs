@@ -8,6 +8,7 @@ import { useShoppingContext } from "@/context/fitlandShoppingContext";
 import { formatNumber } from "@/utils/formatNumber";
 import Link from "next/link";
 import LayoutApp from "@/components/LayoutApp/LayoutApp";
+import PaginationApp from "@/components/Pagination/Pagination";
 export default async function WomenCart() {
 	const result = await fetch(
 		"https://fitland-gtmr.onrender.com/api/products/category/women"
@@ -158,18 +159,7 @@ export default async function WomenCart() {
 					)}
 					{/* left side:products */}
 					{data.length ? (
-						<div className="lg:w-2/3 grid sm:grid-cols-2 md:grid-cols-3 mx-auto gap-5">
-							{data.map((item) => (
-								<Link key={item._id} href={`/womens-cart/${item._id}`}>
-									<Card
-										cardImg={item.img}
-										cardName={item.title}
-										cardSize={item.size}
-										cardPrice={formatNumber(item.price)}
-									/>
-								</Link>
-							))}
-						</div>
+						<PaginationApp data={data} />
 					) : (
 						<div className="text-white text-2xl font-iransans-bold bg-red-600 h-40 w-full flex items-center justify-center rounded-lg">
 							محصولی موجود نیست!
