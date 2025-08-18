@@ -62,9 +62,25 @@ function HeadMenu() {
 						</div>
 						{user ? (
 							<div className="relative">
-								<div onClick={() => setOpenUserSub(!openuserSub)}>
-									<FiUser className="size-5" />
+								<div className="flex items-center gap-4">
+									<div onClick={() => setOpenUserSub(!openuserSub)}>
+										<FiUser className="size-5" />
+									</div>
+									<Link href={"/cart"}>
+										<div className="bg-primary p-2 rounded-sm relative">
+											<HiOutlineShoppingBag />
+											{/* count cart of basket */}
+											{totalQtyCarts ? (
+												<span className="absolute bg-sky-600 size-5 text-xs text-white rounded-full flex items-center justify-center -top-3 -right-3">
+													{totalQtyCarts}
+												</span>
+											) : (
+												""
+											)}
+										</div>
+									</Link>
 								</div>
+
 								<div
 									className={`w-full h-50 my-2 absolute bg-white block transition-all ${
 										openuserSub

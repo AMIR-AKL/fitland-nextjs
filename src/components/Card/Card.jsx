@@ -8,7 +8,7 @@ export default function Product({
 	cardPrice,
 }) {
 	return (
-		<div className="max-w-2xs rounded-2xl overflow-hidden bg-gray-50 cols-3 cursor-pointer hover:-translate-y-2 transition-all shadow-sm">
+		<div className="max-w-2xs rounded-2xl overflow-hidden bg-gray-50 cols-3 cursor-pointer mx-auto shadow-sm">
 			<img src={cardImg} alt="card1" />
 			<div className="py-6 px-4 space-y-4">
 				{/* name & rate */}
