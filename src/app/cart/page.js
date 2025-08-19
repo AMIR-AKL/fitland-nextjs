@@ -16,13 +16,13 @@ export default function Cart() {
 		async function getAllProducts() {
 			const result = cartItems.map((item) =>
 				axios.get(
-					`https://fitland-3tiu.onrender.com/api/products/${item.category}/${item.id}`
+					`https://fitland-3tiu.onrender.com/api/products/${item.category}/${item.productId}`
 				)
 			);
 			const response = await Promise.all(result);
 			const data = response.map((res, index) => ({
 				...res.data,
-				qty: cartItems[index].qty,
+				quantity: cartItems[index].quantity,
 				category: cartItems[index].category,
 			}));
 			setProducts(data);
@@ -30,7 +30,7 @@ export default function Cart() {
 		getAllProducts();
 	}, [cartItems]);
 	const totalPrice = products.reduce((total, item) => {
-		return (total + item.price) * item.qty;
+		return (total + item.price) * item.quantity;
 	}, 0);
 	const handleDisCount = () => {
 		axios(`https://fitland-3tiu.onrender.com/api/discounts?code=${disCountCode}`).then(
@@ -45,7 +45,7 @@ export default function Cart() {
 			}
 		);
 	};
-	// console.log(products);
+	console.log(products);
 
 	// console.log(cartItems);
 
@@ -88,7 +88,7 @@ export default function Cart() {
 							<input
 								onChange={(e) => setDisCountCode(e.target.value)}
 								value={disCountCode}
-								className="bg-green-100 max-sm:w-2/3 text-xs outline-none p-2 rounded-lg"
+								className="bg-green-100 max-sm:w-2/3 max-sm:text-xs outline-none p-2 rounded-lg"
 								type="text"
 								placeholder="کد تخفیف را وارد کنید"
 							/>

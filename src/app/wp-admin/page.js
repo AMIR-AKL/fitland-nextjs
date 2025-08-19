@@ -77,7 +77,7 @@ export default function Page() {
 	}));
 
 	const fetchAllProduct = async () => {
-		await axios("https://fitland-3tiu.onrender.com`/api/products/category/all")
+		await axios("https://fitland-3tiu.onrender.com/api/products/category/all")
 			.then((res) => res.data)
 			.then((data) => {
 				const formattedData = data.map((item) => ({
