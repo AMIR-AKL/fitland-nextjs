@@ -15,79 +15,74 @@ export function FitlandShoppingContextProvider({ children }) {
 	const [user, setUser] = useState(null);
 	const [error, setError] = useState(null);
 	const [logOut, setLogOut] = useState(false);
-	const handleIncreaseCart = (id, category) => {
-		if (user) {
-			setCartItems((currentItems) => {
-				let isCartInBasket = currentItems.find(
-					(item) => item.id == id && item.category == category
-				);
-				if (!isCartInBasket) {
-					return [...currentItems, { id: id, category: category, qty: 1 }];
-				} else {
-					return currentItems.map((item) => {
-						if (item.id == id && item.category == category) {
-							return { ...item, qty: item.qty + 1 };
-						} else {
-							return item;
-						}
-					});
+	const handleIncreaseCart = async (id, category) => {
+		if (!user) {
+			return alert("لطفا وارد حساب خود شوید");
+		}
+
+		try {
+			// console.log(cartItems);
+
+			const token = localStorage.getItem("token");
+			const res = await axios.post(
+				"https://fitland-3tiu.onrender.com/api/cart/add",
+				{
+					userId: user._id,
+					productId: id,
+					category: category,
+					quantity: 1,
+				},
+				{
+					headers: { Authorization: token },
 				}
-			});
-		} else {
-			alert('لطفا وارد حساب خود شوید')
+			);
+			setCartItems(res.data.cart);
+		} catch (err) {
+			console.error("خطا در افزودن به سبد خرید", err);
 		}
 	};
-	const handleDeCreaseCart = (id, category) => {
-		setCartItems((currentItems) => {
-			// console.log(currentItems);
-			// console.log(cartItems);
-			
-			
-			let isLastCartInBasket =
-				currentItems.find((item) => item.id === id && item.category === category)
-					?.qty == 1;
-			if (isLastCartInBasket) {
-				return currentItems.filter(
-					(item) => !(item.id === id && item.category === category)
-				);
-			} else {
-				return currentItems.map((item) => {
-					if (item.id == id && item.category == category) {
-						return { ...item, qty: item.qty - 1 };
-					} else {
-						return item;
-					}
-				});
-			}
-		});
+
+	const handleDeCreaseCart = async (id) => {
+		if (!user) {
+			return alert("لطفا وارد حساب خود شوید");
+		}
+		try {
+			const token = localStorage.getItem("token");
+			const res = await axios.put(
+				`https://fitland-3tiu.onrender.com/api/cart/decrease/${user._id}/${id}`,
+
+				{ headers: { Authorization: token } }
+			);
+			setCartItems(res.data.cart);
+		} catch (err) {
+			console.error("خطا در کاهش محصول", err);
+		}
 	};
 	// console.log(cartItems);
 	const getQtyCart = (id, category) => {
 		return (
-			cartItems.find((item) => item.id === id && item.category == category)
-				?.qty || 0
+			cartItems.find(
+				(item) => item.productId === id && item.category == category
+			)?.quantity || 0
 		);
 	};
-	const totalQtyCarts = cartItems.reduce((total, item) => {
-		return total + item.qty;
+	const totalQtyCarts = cartItems?.reduce((total, item) => {
+		return total + item.quantity;
 	}, 0);
 
 	const deleteCartFromBasket = (id, category) => {
-		setCartItems((currentItems) =>
-			currentItems.filter(
-				(item) => !(item.id === id && item.category === category)
-			)
-		);
-	};
-	useEffect(() => {
-		let isCartInLocale = localStorage.getItem("carts");
-		if (isCartInLocale) {
-			setCartItems(JSON.parse(isCartInLocale));
+		if (!user) {
+			return alert("لطفا وارد حساب خود شوید");
 		}
-	}, []);
-	useEffect(() => {
-		localStorage.setItem("carts", JSON.stringify(cartItems));
-	}, [cartItems]);
+		const deleteCart = async () => {
+			await axios
+				.delete(
+					`https://fitland-3tiu.onrender.com/api/cart/remove/${user._id}/${id}`
+				)
+				.then((res) => setCartItems(res.data.cart));
+		};
+		deleteCart();
+	};
 
 	// get user info
 	useEffect(() => {
@@ -98,12 +93,17 @@ export function FitlandShoppingContextProvider({ children }) {
 					setError("لطفا وارد شوید");
 					return;
 				}
-				const res = await axios.get("https://fitland-3tiu.onrender.com/api/users/", {
-					headers: {
-						Authorization: token,
-					},
-				});
+				const res = await axios.get(
+					"https://fitland-3tiu.onrender.com/api/users/",
+					{
+						headers: {
+							Authorization: token,
+						},
+					}
+				);
 				setUser(res.data.user);
+				setCartItems(res.data.user?.cart);
+
 				// console.log(user);
 			} catch (err) {
 				setError("دریافت اطلاعات کاربر باخطا مواجه شد");
@@ -115,6 +115,7 @@ export function FitlandShoppingContextProvider({ children }) {
 		setLogOut(true);
 		setTimeout(() => {
 			localStorage.removeItem("token");
+			window.location.reload();
 			setUser(null);
 			setLogOut(false);
 		}, 3000);
