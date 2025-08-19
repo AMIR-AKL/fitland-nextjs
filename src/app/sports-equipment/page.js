@@ -12,7 +12,7 @@ import Filtred from "@/components/Filtred/Filtred";
 import PaginationApp from "@/components/Pagination/Pagination";
 export default async function SportsEquipment() {
 	const result = await fetch(
-		"https://fitland-gtmr.onrender.com/api/products/category/equipment"
+		"https://fitland-3tiu.onrender.com/api/products/category/equipment"
 	);
 	const data = await result.json();
 	return (

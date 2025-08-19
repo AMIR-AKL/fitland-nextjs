@@ -15,7 +15,7 @@ export default function Page() {
 		e.preventDefault();
 		try {
 			axios
-				.post("https://fitland-gtmr.onrender.com/api/users/login", form)
+				.post("https://fitland-3tiu.onrender.com/api/users/login", form)
 				.then((res) => {
 					localStorage.setItem("token", res.data.token);
 					setForm({ username: "", password: "" });

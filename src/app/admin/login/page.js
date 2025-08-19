@@ -13,7 +13,7 @@ export default function Page() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		axios.post("https://fitland-gtmr.onrender.com/api/admin/login", form).then((res) => {
+		axios.post("https://fitland-3tiu.onrender.com/api/admin/login", form).then((res) => {
 			console.log(res.data);
 			window.location.href = "/wp-admin";
 		});

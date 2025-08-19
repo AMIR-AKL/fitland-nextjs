@@ -16,7 +16,7 @@ export default function Page() {
 		kidCounts: 0,
 	});
 	const fetchStats = async () => {
-		const res = await axios("https://fitland-gtmr.onrender.com/api/dashboard/stats");
+		const res = await axios("https://fitland-3tiu.onrender.com/api/dashboard/stats");
 		setStats(res.data);
 	};
 	useEffect(() => {
@@ -77,7 +77,7 @@ export default function Page() {
 	}));
 
 	const fetchAllProduct = async () => {
-		await axios("https://fitland-gtmr.onrender.com/api/products/category/all")
+		await axios("https://fitland-3tiu.onrender.com`/api/products/category/all")
 			.then((res) => res.data)
 			.then((data) => {
 				const formattedData = data.map((item) => ({

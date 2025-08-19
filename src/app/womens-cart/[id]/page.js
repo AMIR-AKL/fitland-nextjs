@@ -9,7 +9,7 @@ import { IoStar } from "react-icons/io5";
 export default async function Page({ params }) {
 	const { id } = await params;
 	console.log(id);
-	const result = await fetch(`https://fitland-gtmr.onrender.com/api/products/women/${id}`);
+	const result = await fetch(`https://fitland-3tiu.onrender.com/api/products/women/${id}`);
 	const data = await result.json();
 	console.log(data);
 	

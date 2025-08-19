@@ -11,7 +11,7 @@ import LayoutApp from "@/components/LayoutApp/LayoutApp";
 import PaginationApp from "@/components/Pagination/Pagination";
 export default async function WomenCart() {
 	const result = await fetch(
-		"https://fitland-gtmr.onrender.com/api/products/category/women"
+		"https://fitland-3tiu.onrender.com/api/products/category/women"
 	);
 	const data = await result.json();
 	// console.log(data);

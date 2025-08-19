@@ -6,7 +6,7 @@ import { IoStar } from "react-icons/io5";
 import LayoutApp from "@/components/LayoutApp/LayoutApp";
 export default async function Page({ params }) {
 	const { id } = await params;
-	const result = await fetch(`https://fitland-api-1.onrender.com/sports/${id}`);
+	const result = await fetch(`https://fitland-3tiu.onrender.com/sports/${id}`);
 	const data = await result.json();
 	return (
 		<LayoutApp>

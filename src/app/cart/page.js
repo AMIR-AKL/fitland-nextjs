@@ -16,7 +16,7 @@ export default function Cart() {
 		async function getAllProducts() {
 			const result = cartItems.map((item) =>
 				axios.get(
-					`https://fitland-gtmr.onrender.com/api/products/${item.category}/${item.id}`
+					`https://fitland-3tiu.onrender.com/api/products/${item.category}/${item.id}`
 				)
 			);
 			const response = await Promise.all(result);
@@ -33,7 +33,7 @@ export default function Cart() {
 		return (total + item.price) * item.qty;
 	}, 0);
 	const handleDisCount = () => {
-		axios(`https://fitland-gtmr.onrender.com/api/discounts?code=${disCountCode}`).then(
+		axios(`https://fitland-3tiu.onrender.com/api/discounts?code=${disCountCode}`).then(
 			(res) => {
 				let data = res.data;
 				let off = data.percentag;
@@ -55,8 +55,8 @@ export default function Cart() {
 				<div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
 					{cartItems.map((cart) => (
 						<CartItems
-							key={cart.category + cart.id}
-							id={cart.id}
+							key={cart.productId}
+							id={cart.productId}
 							category={cart.category}
 						/>
 					))}

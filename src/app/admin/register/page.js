@@ -18,7 +18,7 @@ export default function Page() {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		axios.post("https://fitland-gtmr.onrender.com/api/admin/register", form).then((res) => {
+		axios.post("https://fitland-3tiu.onrender.com/api/admin/register", form).then((res) => {
 			console.log(res.data);
 			window.location.href = "/";
 		});

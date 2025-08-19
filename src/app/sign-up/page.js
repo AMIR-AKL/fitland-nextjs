@@ -28,7 +28,7 @@ export default function Page() {
 		// const isPhoneValid = phoneRegex.test(phone);
 		// const isEmailValid = email === "" || emailRegex.test(email); // اختیاری
 		try {
-			axios.post("https://fitland-gtmr.onrender.com/api/users/register", form).then(() => {
+			axios.post("https://fitland-3tiu.onrender.com/api/users/register", form).then(() => {
 				window.location.href = "/login";
 			});
 		} catch (err) {

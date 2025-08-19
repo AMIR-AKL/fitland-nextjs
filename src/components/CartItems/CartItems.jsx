@@ -8,7 +8,7 @@ import axios from "axios";
 export default function CartItems({ id, category }) {
 	const [data, setData] = useState();
 	useEffect(() => {
-		axios(`https://fitland-gtmr.onrender.com/api/products/${category}/${id}`).then((res) =>
+		axios(`https://fitland-3tiu.onrender.com/api/products/${category}/${id}`).then((res) =>
 			setData(res.data)
 		);
 	}, []);

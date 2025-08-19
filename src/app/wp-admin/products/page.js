@@ -29,7 +29,7 @@ export default function Products() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			axios.post("https://fitland-gtmr.onrender.com/api/products/", form).then((res) => {
+			axios.post("https://fitland-3tiu.onrender.com/api/products/", form).then((res) => {
 				console.log(res.data);
 				setform({
 					title: "",
@@ -49,7 +49,7 @@ export default function Products() {
 		// console.log(category, id);
 		try {
 			await axios
-				.delete(`https://fitland-gtmr.onrender.com/api/products/remove/${category}/${id}`)
+				.delete(`https://fitland-3tiu.onrender.com/api/products/remove/${category}/${id}`)
 				.then((res) => {
 					console.log(res.data);
 					fetchAllProduct();
@@ -102,7 +102,7 @@ export default function Products() {
 
 		try {
 			await axios.put(
-				`https://fitland-gtmr.onrender.com/api/products/edite/${currentEdit.category}/${currentEdit.id}`,
+				`https://fitland-3tiu.onrender.com/api/products/edite/${currentEdit.category}/${currentEdit.id}`,
 				form,
 				{
 					headers: {
@@ -203,7 +203,7 @@ export default function Products() {
 	}));
 
 	const fetchAllProduct = async () => {
-		await axios("https://fitland-gtmr.onrender.com/api/products/category/all")
+		await axios("https://fitland-3tiu.onrender.com/api/products/category/all")
 			.then((res) => res.data)
 			.then((data) => {
 				const formattedData = data.map((item) => ({

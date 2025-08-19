@@ -13,7 +13,7 @@ import PaginationApp from "@/components/Pagination/Pagination";
 
 export default async function MensCart() {
 	const result = await fetch(
-		"https://fitland-gtmr.onrender.com/api/products/category/men"
+		"https://fitland-3tiu.onrender.com/api/products/category/men"
 	);
 	const data = await result.json();
 	return (

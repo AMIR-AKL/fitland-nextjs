@@ -11,7 +11,7 @@ export default function Users() {
 	const handleDelete = async (id) => {
 		try {
 			await axios
-				.delete(`https://fitland-gtmr.onrender.com/api/users/remove/${id}`)
+				.delete(`https://fitland-3tiu.onrender.com/api/users/remove/${id}`)
 				.then((res) => {
 					console.log(res.data);
 					fetchAllUsers();
@@ -49,7 +49,7 @@ export default function Users() {
 	}));
 
 	const fetchAllUsers = async () => {
-		await axios("https://fitland-gtmr.onrender.com/api/users/all")
+		await axios("https://fitland-3tiu.onrender.com/api/users/all")
 			.then((res) => res.data)
 			.then((data) => {
 				const formattedData = data.map((item) => ({
@@ -67,43 +67,6 @@ export default function Users() {
 		fetchAllUsers();
 	}, []);
 
-	// const rows = [
-	// 	{
-	// 		id: 1,
-	// 		firstname: "سحر",
-	// 		lastname: "کریمی",
-	// 		username: "sahar-karimi",
-	// 		password: "sahar1378",
-	// 	},
-	// 	{
-	// 		id: 2,
-	// 		firstname: "سحر",
-	// 		lastname: "کریمی",
-	// 		username: "sahar-karimi",
-	// 		password: "sahar1378",
-	// 	},
-	// 	{
-	// 		id: 3,
-	// 		firstname: "سحر",
-	// 		lastname: "کریمی",
-	// 		username: "sahar-karimi",
-	// 		password: "sahar1378",
-	// 	},
-	// 	{
-	// 		id: 4,
-	// 		firstname: "سحر",
-	// 		lastname: "کریمی",
-	// 		username: "sahar-karimi",
-	// 		password: "sahar1378",
-	// 	},
-	// 	{
-	// 		id: 5,
-	// 		firstname: "سحر",
-	// 		lastname: "کریمی",
-	// 		username: "sahar-karimi",
-	// 		password: "sahar1378",
-	// 	},
-	// ];
 	return (
 		<>
 			<Sidebar>

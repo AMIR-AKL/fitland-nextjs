@@ -98,7 +98,7 @@ export function FitlandShoppingContextProvider({ children }) {
 					setError("لطفا وارد شوید");
 					return;
 				}
-				const res = await axios.get("https://fitland-gtmr.onrender.com/api/users/", {
+				const res = await axios.get("https://fitland-3tiu.onrender.com/api/users/", {
 					headers: {
 						Authorization: token,
 					},
