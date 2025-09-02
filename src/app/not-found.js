@@ -21,12 +21,12 @@ export default function NotFound() {
 						متاسفیم، صفحه مورد نظر شما را پیدا نکردیم.
 					</p>
 					<div className="mt-10 flex items-center justify-center gap-x-6">
-						<a
-							href="#"
+						<Link
+							href="/"
 							className="rounded-md bg-amber-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-amber-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 						>
 							بازگشت به خانه
-						</a>
+						</Link>
 						<Link
 							href="contact-us"
 							className=" font-semibold flex items-center text-gray-900"
