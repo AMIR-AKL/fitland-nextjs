@@ -1,11 +1,7 @@
 export const dynamic = "force-dynamic";
-import Link from "next/link";
 import React from "react";
-import { IoIosArrowDown } from "react-icons/io";
 import { IoFilterOutline } from "react-icons/io5";
 import { LuSettings2 } from "react-icons/lu";
-import Card from "@/components/Card/Card";
-import { formatNumber } from "@/utils/formatNumber";
 import LayoutApp from "@/components/LayoutApp/LayoutApp";
 import Filtred from "@/components/Filtred/Filtred";
 import EmptyError from "@/components/EmptyError/EmptyError";
@@ -37,7 +33,7 @@ export default async function ChildrenCart() {
 					{/* right side :filter section in desktop*/}
 					{data.length ? <Filtred /> : ""}
 					{/* left side:products */}
-					{data.length ? <PaginationApp data={data} /> : <EmptyError />}
+					{data.length ? <PaginationApp data={data} href={'children-cart'} /> : <EmptyError />}
 				</div>
 			</div>
 		</LayoutApp>

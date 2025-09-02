@@ -14,7 +14,7 @@ import Link from "next/link";
 import { formatNumber } from "@/utils/formatNumber";
 import Card from "@/components/Card/Card";
 
-export default function PaginationApp({ data }) {
+export default function PaginationApp({ data,href }) {
 	return (
 		<>
 			<Swiper
@@ -38,14 +38,14 @@ export default function PaginationApp({ data }) {
 					},
 				}}
 				autoplay={{
-					delay: 3000,
+					delay: 5000,
 					disableOnInteraction: false,
 					reverseDirection: true,
 				}}
 			>
 				{data.map((slide) => (
 					<SwiperSlide key={slide._id}>
-						<Link href={`/mens-cart/${slide._id}`}>
+						<Link href={`/${href}/${slide._id}`}>
 							<Card
 								cardImg={slide.img}
 								cardName={slide.title}

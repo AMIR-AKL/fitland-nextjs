@@ -38,23 +38,7 @@ export default async function MensCart() {
 					{data.length ? <Filtred /> : ""}
 
 					{/* left side:products */}
-					{data.length ? (
-						<PaginationApp data={data} />
-					) : (
-						// <div className="lg:w-2/3 grid sm:grid-cols-2 md:grid-cols-3 mx-auto gap-5">
-						// 	{data.map((item) => (
-								// <Link key={item._id} href={`/mens-cart/${item._id}`}>
-								// 	<Card
-								// 		cardImg={item.img}
-								// 		cardName={item.title}
-								// 		cardSize={item.size}
-								// 		cardPrice={formatNumber(item.price)}
-								// 	/>
-								// </Link>
-						// 	))}
-						// </div>
-						<EmptyError />
-					)}
+					{data.length ? <PaginationApp data={data} href={'mens-cart'}/> : <EmptyError />}
 				</div>
 			</div>
 		</LayoutApp>

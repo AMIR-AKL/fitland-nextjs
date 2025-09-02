@@ -3,10 +3,6 @@ import React from "react";
 import { LuSettings2 } from "react-icons/lu";
 import { IoFilterOutline } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
-import Card from "@/components/Card/Card";
-import { useShoppingContext } from "@/context/fitlandShoppingContext";
-import { formatNumber } from "@/utils/formatNumber";
-import Link from "next/link";
 import LayoutApp from "@/components/LayoutApp/LayoutApp";
 import PaginationApp from "@/components/Pagination/Pagination";
 export default async function WomenCart() {
@@ -159,7 +155,7 @@ export default async function WomenCart() {
 					)}
 					{/* left side:products */}
 					{data.length ? (
-						<PaginationApp data={data} />
+						<PaginationApp data={data} href={"womens-cart"} />
 					) : (
 						<div className="text-white text-2xl font-iransans-bold bg-red-600 h-40 w-full flex items-center justify-center rounded-lg">
 							محصولی موجود نیست!
