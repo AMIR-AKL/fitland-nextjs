@@ -45,7 +45,7 @@ export default function Cart() {
 			}
 		);
 	};
-	console.log(products);
+	// console.log(products);
 
 	// console.log(cartItems);
 

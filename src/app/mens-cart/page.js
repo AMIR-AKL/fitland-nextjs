@@ -16,6 +16,9 @@ export default async function MensCart() {
 		"https://fitland-3tiu.onrender.com/api/products/category/men"
 	);
 	const data = await result.json();
+
+	console.log("mens cart");
+
 	return (
 		<LayoutApp>
 			<div className="container mt-5">
@@ -38,7 +41,11 @@ export default async function MensCart() {
 					{data.length ? <Filtred /> : ""}
 
 					{/* left side:products */}
-					{data.length ? <PaginationApp data={data} href={'mens-cart'}/> : <EmptyError />}
+					{data.length ? (
+						<PaginationApp data={data} href={"mens-cart"} />
+					) : (
+						<EmptyError />
+					)}
 				</div>
 			</div>
 		</LayoutApp>
