@@ -4,20 +4,66 @@ import { formatNumber } from "@/utils/formatNumber";
 import { IoStar } from "react-icons/io5";
 import AddBtnCart from "../AddBtnCart/AddBtnCart";
 import axios from "axios";
+import Image from "next/image";
 
 export default function CartItems({ id, category }) {
 	const [data, setData] = useState();
+	const [loading, setLoading] = useState(true);
 	useEffect(() => {
-		axios(`https://fitland-3tiu.onrender.com/api/products/${category}/${id}`).then((res) =>
-			setData(res.data)
+		const fetchProduct = async () => {
+			try {
+				const res = await axios(
+					`https://fitland-3tiu.onrender.com/api/products/${category}/${id}`
+				);
+				setData(res.data);
+			} catch (error) {
+				console.error("خطا در گرفتن اطلاعات محصول:", error);
+			} finally {
+				setLoading(false);
+			}
+		};
+		fetchProduct();
+	}, [id, category]);
+
+	// loading...
+	if (loading) {
+		return (
+			<div className="flex justify-center items-center h-64">
+				<p className="text-gray-500 text-lg font-iransans-medium">
+					در حال بارگذاری...
+				</p>
+			</div>
 		);
-	}, []);
-	// console.log(data);
+	}
+
+	// product not-found
+	if (!data) {
+		return (
+			<div className="flex justify-center items-center h-64">
+				<p className="text-red-500 text-lg font-iransans-medium">
+					محصول پیدا نشد!
+				</p>
+			</div>
+		);
+	}
 
 	return (
 		<div className="flex flex-col shadow mt-5 rounded-lg overflow-hidden">
 			<div className="relative">
-				<img className="object-cover w-full bg-cover bg-center" src={data?.img} alt="card1" />
+				<div className=" relative w-full h-64 md:h-80 lg:h-96">
+					<Image
+						src={data.img}
+						alt="card"
+						fill
+						quality={100}
+						sizes="(max-width:768px) 100vw,(max-width:1200px) 50vw,400px"
+					/>
+				</div>
+				{/* <img
+					className="object-cover w-full bg-cover bg-center"
+					src={data?.img}
+					alt="card1"
+				/> */}
 				<div className=" absolute right-5 top-2">
 					<span
 						className={`bg-[#334B4F] size-4 rounded-full block absolute top-2`}
@@ -35,7 +81,7 @@ export default function CartItems({ id, category }) {
 				<div>
 					{/* card name */}
 					<h3 className="font-iransans-medium text-2xl tracking-tight">
-						{data?.title}
+						{data.title}
 					</h3>
 					{/* rate */}
 					<div className="flex mt-4">
@@ -49,13 +95,13 @@ export default function CartItems({ id, category }) {
 				{/* card size */}
 				<div>
 					<p className="text-xl font-iransans-medium tracking-tight">
-						{data?.size}
+						{data.size}
 					</p>
 				</div>
 				{/* card price */}
 				<div>
 					<h3 className="font-iransans-bold text-xl tracking-tight flex gap-2 items-center">
-						{formatNumber(data?.price || 0)}
+						{formatNumber(data.price || 0)}
 						<span className="text-sm font-iransans-medium">تومان</span>
 					</h3>
 				</div>

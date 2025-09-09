@@ -1,15 +1,18 @@
+import Image from "next/image";
 import React from "react";
 import { IoStar } from "react-icons/io5";
-export default function Product({
-	cardImg,
-	cardName,
-	cardRate,
-	cardSize,
-	cardPrice,
-}) {
+export default function Product({ cardImg, cardName, cardSize, cardPrice }) {
 	return (
 		<div className="max-w-2xs rounded-2xl overflow-hidden bg-gray-50 cols-3 cursor-pointer mx-auto shadow-sm">
-			<img src={cardImg} alt="card1" />
+			<div className="relative w-full h-64 md:h-80 lg:h-96">
+				<Image
+					src={cardImg}
+					alt="card"
+					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+					fill
+					quality={80}
+				/>
+			</div>
 			<div className="py-6 px-4 space-y-4">
 				{/* name & rate */}
 				<div className="flex justify-between">
