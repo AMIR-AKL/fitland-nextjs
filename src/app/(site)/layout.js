@@ -11,15 +11,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="fa" dir="rtl">
-			<body className="">
-				<FitlandShoppingContextProvider>
-					<Header />
-					{children}
-					<BeforeFooter />
-					<Footer />
-				</FitlandShoppingContextProvider>
-			</body>
-		</html>
+		<FitlandShoppingContextProvider>
+			<Header />
+			{children}
+			<BeforeFooter />
+			<Footer />
+		</FitlandShoppingContextProvider>
 	);
 }
