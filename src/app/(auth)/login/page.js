@@ -26,7 +26,7 @@ export default function Page() {
 		}
 	};
 	const typeInputHandler = (e) => {
-		e.preventDefault();
+		// e.preventDefault();
 		setInputPasswordType(!inputPasswordType);
 	};
 	return (
@@ -62,7 +62,7 @@ export default function Page() {
 							</div>
 						</div>
 
-						{/* Phone */}
+						{/* Password */}
 						<div>
 							<label className="block mb-4 font-iransans-medium tracking-tight">
 								رمزعبور:
@@ -78,6 +78,7 @@ export default function Page() {
 								/>
 								<button
 									onClick={typeInputHandler}
+									type="submit"
 									className="w-10 py-1 px-2 rounded-xl bg-amber-500 text-white cursor-pointer hover:bg-amber-600 transition-colors"
 								>
 									<IoMdEye className="size-5" />

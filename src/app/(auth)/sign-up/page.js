@@ -14,7 +14,7 @@ export default function Page() {
 	});
 
 	const typeInputHandler = (e) => {
-		e.preventDefault();
+		// e.preventDefault();
 		setInputPasswordType(!inputPasswordType);
 	};
 	const handleChange = (e) => {

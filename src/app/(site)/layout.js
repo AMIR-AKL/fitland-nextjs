@@ -1,5 +1,5 @@
 import Header from "@/components/Header/Header";
-import "./globals.css";
+import "@/app/styles/globals.css";
 import BeforeFooter from "@/components/BeforeFooter/BeforeFooter";
 import Footer from "@/components/Footer/Footer";
 import { FitlandShoppingContextProvider } from "@/context/fitlandShoppingContext";
@@ -14,7 +14,10 @@ export default function RootLayout({ children }) {
 		<html lang="fa" dir="rtl">
 			<body className="">
 				<FitlandShoppingContextProvider>
+					<Header />
 					{children}
+					<BeforeFooter />
+					<Footer />
 				</FitlandShoppingContextProvider>
 			</body>
 		</html>

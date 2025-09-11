@@ -28,47 +28,47 @@
 }
 @font-face {
 	font-family: "IRANSansX Black";
-	src: url("../../public/font/IRANSansX-Black.woff2");
+	src: url("../../../public/font/IRANSansX-Black.woff2");
 }
 @font-face {
 	font-family: "IRANSansX Bold";
-	src: url("../../public/font/IRANSansX-Bold.woff2");
+	src: url("../../../public/font/IRANSansX-Bold.woff2");
 }
 @font-face {
 	font-family: "IRANSansX DemiBold";
-	src: url("../../public/font/IRANSansX-DemiBold.woff2");
+	src: url("../../../public/font/IRANSansX-DemiBold.woff2");
 }
 @font-face {
 	font-family: "IRANSansX ExtraBlack";
-	src: url("../../public/font/IRANSansX-ExtraBlack.woff2");
+	src: url("../../../public/font/IRANSansX-ExtraBlack.woff2");
 }
 @font-face {
 	font-family: "IRANSansX ExtraBold";
-	src: url("../../public/font/IRANSansX-ExtraBold.woff2");
+	src: url("../../../public/font/IRANSansX-ExtraBold.woff2");
 }
 @font-face {
 	font-family: "IRANSansX Heavy";
-	src: url("../../public/font/IRANSansX-Heavy.woff2");
+	src: url("../../../public/font/IRANSansX-Heavy.woff2");
 }
 @font-face {
 	font-family: "IRANSansX Light";
-	src: url("../../public/font/IRANSansX-Light.woff2");
+	src: url("../../../public/font/IRANSansX-Light.woff2");
 }
 @font-face {
 	font-family: "IRANSansX Medium";
-	src: url("../../public/font/IRANSansX-Medium.woff2");
+	src: url("../../../public/font/IRANSansX-Medium.woff2");
 }
 @font-face {
 	font-family: "IRANSansX Regular";
-	src: url("../../public/font/IRANSansX-Regular.woff2");
+	src: url("../../../public/font/IRANSansX-Regular.woff2");
 }
 @font-face {
 	font-family: "IRANSansX Thin";
-	src: url("../../public/font/IRANSansX-Thin.woff2");
+	src: url("../../../public/font/IRANSansX-Thin.woff2");
 }
 @font-face {
 	font-family: "IRANSansX UltraLight";
-	src: url("../../public/font/IRANSansX-UltraLight.woff2");
+	src: url("../../../public/font/IRANSansX-UltraLight.woff2");
 }
 @utility bg-banner1 {
 	background: url("/img/banner1/banner.jpg");
