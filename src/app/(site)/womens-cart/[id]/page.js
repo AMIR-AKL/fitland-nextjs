@@ -74,7 +74,7 @@ export default async function Page({ params }) {
 
 					{/* افزودن به سبد */}
 					<div className="">
-						<AddBtnCart id={id} category="men" />
+						<AddBtnCart id={id} category="women" />
 					</div>
 				</div>
 			</div>
